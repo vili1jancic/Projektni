@@ -1,0 +1,60 @@
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Glasses</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="glasses/new.html">Dodaj nova očala</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "Odjava", destroy_user_session_path, method: :delete %></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<h1>Listing glasses</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Price</th>
+    <th>Factor</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @glasses.each do |glass| %>
+  <tr>
+    <td><%= glass.title %></td>
+    <td><%= glass.description %></td>
+    <td><%= glass.price %></td>
+    <td><%= glass.factor %></td>
+    <td><%= glass.company %></td>
+    <td>
+        <button type="button" class="btn-group btn-group-sm btn-success"><%= link_to 'Show', glass %></button>
+    </td>
+
+    <td>
+      <button type="button" class="btn-group btn-group-sm btn-info"><%= link_to 'Edit', edit_glass_path(glass) %></button></td>
+    <td>
+      <button type="button" class="btn-group btn-group-sm btn-danger"><%= link_to 'Destroy', glass, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<button type="button" class="btn-success"><%= link_to 'Dodaj nova očala', new_glass_path %></button>

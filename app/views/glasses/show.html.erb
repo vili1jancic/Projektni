@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @glass.title %>
+</p>
+
+<p>
+  <b>Image:</b>
+  <%= image_tag @glass.photo %>
+</p>
+
+<p>
+  <b>Company:</b>
+  <%= @glass.company %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @glass.description %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%= @glass.price %>
+</p>
+
+<p>
+  <b>Factor:</b>
+  <%= @glass.factor %>
+</p>
+
+
+<%= link_to 'Edit', edit_glass_path(@glass) %> |
+<%= link_to 'Back', glasses_path %>
